@@ -1,16 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        remotePatterns: [
-            {
-                protocol: 'https',
-                hostname: 'i.stack.imgur.com'
-            }
-        ]
-    },
     experimental: {
-        serverActions: true,
-    }
-}
+      serverActions: true,
+    },
+    images: {
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "i.stack.imgur.com",
+          port: "",
+          pathname: "/QwtoI.jpg?s=256&g=1",
+        },
+      ],
+    },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

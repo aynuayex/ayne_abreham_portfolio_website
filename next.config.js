@@ -8,8 +8,6 @@ const nextConfig = {
         {
           protocol: "https",
           hostname: "i.stack.imgur.com",
-          port: "",
-          pathname: "/QwtoI.jpg?s=256&g=1",
         },
       ],
     },

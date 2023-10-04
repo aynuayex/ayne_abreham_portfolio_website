@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Ayne's Portfolio",
   description:
-    "Ayne Abreham is a MERN and NEXT.js fullstack developer with 2 years of experience",
+    "Ayne Abreham is a MERN and NEXT.js fullstack developer with 1 year of experience",
 };
 
 export default function RootLayout({

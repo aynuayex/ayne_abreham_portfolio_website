@@ -100,10 +100,18 @@ export const experiencesData = [
     },
     {
       title: "Open for job",
-      location: "5kilo, Addis Ababa",
+      location: "Addis Ababa, Ethiopia",
       description:
         "I'm now advancing my skills by working on projects and learning new techs.My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
       icon: React.createElement(FaHandshake),
-      date: "2023 - present",
+      date: "July-February 2023",
+    },
+    {
+      title: "Intermediate Frontend Developer(React)",
+      location: "Addis Ababa, Ethiopia",
+      description:
+        "I am currently working as a Frontend developer(React) @ Alem Expect solutions a startup company on MedAxs hospital management system. I'm open to part-time, remote job opportunities.",
+      icon: React.createElement(FaHandshake),
+      date: "February 2023 - present",
     },
   ] as const;

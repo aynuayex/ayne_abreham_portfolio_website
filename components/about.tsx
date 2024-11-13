@@ -22,39 +22,47 @@ export default function About() {
         transition={{ delay: 0.175 }}
       >
         <p className="mb-3">
-          Having recently graduated with a degree in{" "}
+          I graduated with a Bachelor&apos;s Degree in{" "}
           <span className="font-medium">
-            Electrical and Computer Engineering
+            Electrical and Computer Engineering(Computer Engineering stream)
           </span>{" "}
           from{" "}
           <span className="italic">
-            Addis Ababa Science and Technology University in Ethiopia
+            Addis Ababa Science and Technology University
+            <span className="font-medium">(AASTU)</span> in Ethiopia in July, 2023
           </span>
           , where I achieved a{" "}
           <span className="font-medium">CGPA of 3.55 </span>and passed the{" "}
           <span className="italic">
             first Ethiopian national university exit exam with 65%
           </span>
-          , I decided to channel my passion for technology in to{" "}
-          <span className="font-medium">full-stack web development</span>.
-          Alongside my formal education,I embarked on a self-taught journey in
-          web development through platforms like{" "}
-          <span className="underline">FreeCodeCamp</span> and{" "}
-          <span className="underline">YouTube</span>. I&apos;ve earned certificates
-          by building projects on the FreeCodeCamp platform and honed my skills.
-          My preferred tech stack includes{" "}
+          , Besides my formal education, I developed my Skills in{" "}
           <span className="font-medium">
-            React, Next.js, Node.js, and MongoDB
+            full-stack web and app development
           </span>
-          , with familiarity in TypeScript and Prisma. 
+          .
         </p>
-        <p>I thrive on problem-solving and relish the satisfaction of finding elegant
-          solutions.Continuously seeking opportunities to expand my knowledge,
-          I am currently in search of a{" "}
-          <span className="font-medium">full-time position</span>{" "}
-          software developer role where I can apply and further develop my
-          skills.
-
+        <p>
+          So, I&apos;m a self-taught developer who has honed my skills through
+          platforms like{" "}
+          <a
+            href="https://www.freecodecamp.org/"
+            target="_blank"
+            rel="noopener noreferrer external"
+            className="underline"
+          >
+            FreeCodeCamp
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer external"
+            className="underline"
+          >
+            YouTube
+          </a>
+          .
         </p>
       </motion.section>
     </section>

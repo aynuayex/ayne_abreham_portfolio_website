@@ -13,7 +13,7 @@ import { useSectionInView } from "@/lib/hooks";
 import { useTheme } from "next-themes";
 
 export default function Experience() {
-    const ref = useSectionInView("Experience",0.75);
+    const ref = useSectionInView("Experience");
     // const { theme } = useThemeContext();
   const { theme } = useTheme();
 

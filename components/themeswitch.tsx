@@ -1,14 +1,24 @@
 "use client";
 
-import { useThemeContext } from "@/context/theme-context";
+// import { useThemeContext } from "@/context/theme-context";
+import { useTheme } from "next-themes";
 import React from "react";
 import { BsMoon, BsSun } from "react-icons/bs";
 
 
 export default function ThemeSwitch() {
 
-  const { theme, toggleTheme } = useThemeContext();
+  // const { theme, toggleTheme } = useThemeContext();
+  const { theme, setTheme } = useTheme();
   
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+
   return (
     <button
       className="fixed bottom-5 right-5 bg-white w-[3rem] h-[3rem]

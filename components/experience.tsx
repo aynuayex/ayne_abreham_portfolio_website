@@ -9,11 +9,13 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { experiencesData } from "@/lib/data";
 import { useSectionInView } from "@/lib/hooks";
-import { useThemeContext } from "@/context/theme-context";
+// import { useThemeContext } from "@/context/theme-context";
+import { useTheme } from "next-themes";
 
 export default function Experience() {
     const ref = useSectionInView("Experience",0.75);
-    const { theme } = useThemeContext();
+    // const { theme } = useThemeContext();
+  const { theme } = useTheme();
 
   return (
     <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">

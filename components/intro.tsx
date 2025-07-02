@@ -83,7 +83,7 @@ export default function Intro() {
           }}
         >
           Contact me here
-          <BsArrowRight className="group-hover:translate-x-1 transition" />
+          <BsArrowRight className="group-hover:translate-x-1 group-active:translate-x-1 transition" />
         </Link>
 
         <a

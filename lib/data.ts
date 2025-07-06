@@ -1,12 +1,19 @@
 import React from "react";
-import { FaHandshake } from "react-icons/fa";
+import { FaHandshake, FaUserTie, FaCode, FaLevelUpAlt,   } from "react-icons/fa";
 import { FaUserGraduate } from "react-icons/fa";
-import { MdModelTraining } from "react-icons/md";
+import { MdModelTraining, MdWorkspacePremium } from "react-icons/md";
 import { PiRocketLaunchFill } from "react-icons/pi";
 // import { CgWorkAlt } from "react-icons/cg";
 import Book from "@/public/BookRentalApp.png";
 import Pizza from "@/public/PizzaOrderingService.png";
 import Videoconference from "@/public/videoconference.png";
+
+import { SiReact } from "react-icons/si";
+// From GameIcons (react-icons/gi)
+import { GiRank3, GiSkills,  } from "react-icons/gi";      // Ranks and skill mastery
+
+// From RemixIcon (react-icons/ri)
+import { RiTeamLine } from "react-icons/ri";  
 
 export const links = [
   {
@@ -75,9 +82,10 @@ export const skillsData = [
   "React",
   "Tanstack table",
   "Material-react-table",
-  "ReactNative",
+  "ReactNative(Expo)",
   "React Query",
   "Redux/toolkit",
+  "React tool kit query(rtk-Query)",
   "Next.js",
   "Node.js",
   "Express",
@@ -108,7 +116,7 @@ export const experiencesData = [
     description:
       "I started working as a MERN stack Developer at AASTU(my university) by building micro-frontend projects to their website.",
     icon: React.createElement(MdModelTraining),
-    date: "November 2022-February 2023",
+    date: "November 2022 - February 2023",
   },
   {
     title: "Open for job",
@@ -121,24 +129,34 @@ export const experiencesData = [
   {
     title: "Intermediate Frontend Developer(React)",
     location: "Addis Ababa, Ethiopia",
-    description: React.createElement(
-      'span',
-      null,
-      'I am currently working as a Frontend developer (React) at ',
-      React.createElement(
-        'a',
-        { 
-          href: "https://www.linkedin.com/company/alem-expect-solution/mycompany/",
-          className: "hover:underline font-semibold",
-          target: "_blank", 
-          rel: "noopener noreferrer external" // security best practice when using target="_blank" 
-        },
-        'Alem Expect Solutions'
-      ),
-      ' on MedAxs hospital management system.'
-    ),
-    // I'm open to part-time, remote job opportunities.",
+    description: {
+      textBefore:
+        "Worked on MedAxs hospital management system as an Intermediate Front end developer(React) at ",
+      company: {
+        name: "Alem Expect Solutions",
+        url: "https://www.linkedin.com/company/alem-expect-solution/",
+      },
+      textAfter: " and implemented many features such as video chat app etc.",
+    },
+    // I'm open to part-time, remote job opportunities.
     icon: React.createElement(PiRocketLaunchFill),
-    date: "February 2023 - present",
+    date: "February 2023 - June 2025",
+  },
+  {
+    title: "Senior Frontend Developer and Team Leader",
+    location: "Addis Ababa, Ethiopia",
+    description: {
+      textBefore:
+        "I am currently working as a Senior Frontend developer and Team Leader at ",
+      company: {
+        name: "Fanaye Technologies.",
+        url: "https://www.linkedin.com/company/fanaye-tech/",
+      },
+      textAfter:
+        " \nLead and contributed to the development of various projects, providing technical guidance and mentorship to junior developers and interns throughout the development lifecycle.",
+    },
+    // I'm open to part-time, remote job opportunities.
+    icon: React.createElement(MdWorkspacePremium),
+    date: "June 2025 - present",
   },
 ] as const;

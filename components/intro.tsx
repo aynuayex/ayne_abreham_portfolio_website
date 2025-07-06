@@ -61,11 +61,11 @@ export default function Intro() {
       >
         <span className="font-bold">Hello, I&apos;m Ayne.</span> I&apos;m a{" "}
         <span className="font-bold">full-stack developer</span> with{" "}
-        <span className="font-bold">1 year</span> of experience.My{" "}
+        <span className="font-bold">2 year</span> of experience.My{" "}
         <span className="italic">focus</span> is on{" "}
         <span className="underline">MERN</span> full stack,{" "}
         <span className="underline">Next.js</span> and{" "}
-        <span className="underline">ReactNative</span>.
+        <span className="underline">ReactNative(Expo)</span>.
       </motion.h1>
       <motion.div
         className="flex flex-col sm:flex-row items-center 

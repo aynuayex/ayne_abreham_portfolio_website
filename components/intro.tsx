@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight, BsLinkedin } from "react-icons/bs";
@@ -9,10 +9,16 @@ import { HiDownload } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
+import CvModal from "./cv-modal";
 
-export default function Intro() {
+interface IntroProps {
+  cvUrl?: string | null;
+}
+
+export default function Intro({ cvUrl }: IntroProps) {
   const ref = useSectionInView("Home");
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const [cvOpen, setCvOpen] = useState(false);
   return (
     <section
       ref={ref}
@@ -88,19 +94,16 @@ export default function Intro() {
           <BsArrowRight className="group-hover:translate-x-1 group-active:translate-x-1 transition" />
         </Link>
 
-        <a
+        <button
+          type="button"
+          onClick={() => setCvOpen(true)}
           className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full 
             outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack
-            dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/80 dark:hover:text-white"
-          href="/CV-Ayne-Abreham.pdf"
-          download
+            dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/80 dark:hover:text-white shadow-sm"
         >
-          Download CV
-          <HiDownload
-            className="group-hover:translate-y-1 transition
-          "
-          />
-        </a>
+          View & Download CV
+          <HiDownload className="group-hover:translate-y-1 transition text-lg" />
+        </button>
 
         <a
           className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full
@@ -125,6 +128,13 @@ export default function Intro() {
           <FaGithubSquare />{" "}
         </a>
       </motion.div>
+
+      {/* In-page Interactive CV Modal */}
+      <CvModal
+        isOpen={cvOpen}
+        onClose={() => setCvOpen(false)}
+        cvUrl={cvUrl}
+      />
     </section>
   );
 }

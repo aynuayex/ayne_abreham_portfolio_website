@@ -13,18 +13,34 @@ import CvModal from "./cv-modal";
 
 interface IntroProps {
   cvUrl?: string | null;
+  profile?: {
+    fullName?: string | null;
+    title?: string | null;
+    bio?: string | null;
+    avatarUrl?: string | null;
+    cvDriveUrl?: string | null;
+    githubUrl?: string | null;
+    linkedinUrl?: string | null;
+    email?: string | null;
+  } | null;
 }
 
-export default function Intro({ cvUrl }: IntroProps) {
+export default function Intro({ cvUrl, profile }: IntroProps) {
   const ref = useSectionInView("Home");
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const [cvOpen, setCvOpen] = useState(false);
+
+  const activeCvUrl = profile?.cvDriveUrl || cvUrl;
+  const avatar = profile?.avatarUrl || "https://i.stack.imgur.com/QwtoI.jpg?s=256&g=1";
+  const fullName = profile?.fullName || "Ayne";
+  const linkedin = profile?.linkedinUrl || "https://www.linkedin.com/in/ayne-abreham/";
+  const github = profile?.githubUrl || "https://github.com/aynuayex";
+
   return (
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[50rem] 
-        text-center sm:mb-0 scroll-mt-36"
+      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-36"
     >
       <div className="flex items-center justify-center">
         <div className="relative">
@@ -37,8 +53,8 @@ export default function Intro({ cvUrl }: IntroProps) {
             }}
           >
             <Image
-              src="https://i.stack.imgur.com/QwtoI.jpg?s=256&g=1"
-              alt="Ayne portrait"
+              src={avatar}
+              alt={`${fullName} portrait`}
               width="192"
               height="192"
               priority={true}
@@ -60,31 +76,39 @@ export default function Intro({ cvUrl }: IntroProps) {
           </motion.span>
         </div>
       </div>
+
       <motion.h1
         className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >
-        <span className="font-bold">Hello, I&apos;m Ayne.</span> I&apos;m a{" "}
-        <span className="font-bold">full-stack developer</span> with{" "}
-        <span className="font-bold">2 year</span> of experience.My{" "}
-        <span className="italic">focus</span> is on{" "}
-        <span className="underline">MERN</span> full stack,{" "}
-        <span className="underline">Next.js</span> and{" "}
-        <span className="underline">ReactNative(Expo)</span>.
+        {profile?.bio ? (
+          <>
+            <span className="font-bold">Hello, I&apos;m {fullName}.</span>{" "}
+            {profile.bio}
+          </>
+        ) : (
+          <>
+            <span className="font-bold">Hello, I&apos;m {fullName}.</span> I&apos;m a{" "}
+            <span className="font-bold">{profile?.title || "full-stack developer"}</span> with{" "}
+            <span className="font-bold">2 years</span> of experience. My{" "}
+            <span className="italic">focus</span> is on{" "}
+            <span className="underline">MERN</span> full stack,{" "}
+            <span className="underline">Next.js</span> and{" "}
+            <span className="underline">ReactNative(Expo)</span>.
+          </>
+        )}
       </motion.h1>
+
       <motion.div
-        className="flex flex-col sm:flex-row items-center 
-          justify-center gap-2 px-4 text-lg font-medium"
+        className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white/80 px-7 py-3 flex items-center gap-2 rounded-full
-              outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition
-              hover:text-white"
+          className="group bg-gray-900 text-white/80 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-gray-950 active:scale-105 transition hover:text-white"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
@@ -97,20 +121,15 @@ export default function Intro({ cvUrl }: IntroProps) {
         <button
           type="button"
           onClick={() => setCvOpen(true)}
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full 
-            outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack
-            dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/80 dark:hover:text-white shadow-sm"
+          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/80 dark:hover:text-white shadow-sm"
         >
           View & Download CV
           <HiDownload className="group-hover:translate-y-1 transition text-lg" />
         </button>
 
         <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full
-            focus:scale-110 hover:scale-[1.15] hover:text-gray-950 
-            active:scale-[1.15] transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60
-            dark:hover:text-white dark:hover:bg-white/20"
-          href="https://www.linkedin.com/in/ayne-abreham/"
+          className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full focus:scale-110 hover:scale-[1.15] hover:text-gray-950 active:scale-[1.15] transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60 dark:hover:text-white dark:hover:bg-white/20"
+          href={linkedin}
           target="_blank"
           rel="noopener noreferrer external"
         >
@@ -118,10 +137,8 @@ export default function Intro({ cvUrl }: IntroProps) {
         </a>
 
         <a
-          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full
-            focus:scale-110 hover:scale-110 hover:text-gray-950 dark:hover:text-white dark:hover:bg-white/20
-            active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
-          href="https://github.com/aynuayex"
+          className="bg-white p-4 text-gray-700 flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-110 hover:scale-110 hover:text-gray-950 dark:hover:text-white dark:hover:bg-white/20 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60"
+          href={github}
           target="_blank"
           rel="noopener noreferrer external"
         >
@@ -133,7 +150,7 @@ export default function Intro({ cvUrl }: IntroProps) {
       <CvModal
         isOpen={cvOpen}
         onClose={() => setCvOpen(false)}
-        cvUrl={cvUrl}
+        cvUrl={activeCvUrl}
       />
     </section>
   );

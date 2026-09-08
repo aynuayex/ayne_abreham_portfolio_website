@@ -5,7 +5,13 @@ import { projectsData } from "@/lib/data";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = {
+  title: string;
+  url?: string | null;
+  description: string;
+  tags: readonly string[] | string[];
+  imageUrl?: any;
+};
 
 export default function Project({
   title,
@@ -36,7 +42,7 @@ export default function Project({
           sm:group-even:pl-10 hover:bg-gray-200 transition dark:bg-white/10 
         dark:hover:bg-white/20 dark:text-white"
       >
-        <a href={websiteLink} target="_blank" rel="noopener noreferrer external">
+        <a href={websiteLink || undefined} target="_blank" rel="noopener noreferrer external">
           <div
             className="pt-4 pb-8 px-5 sm:pl-10 sm:pr-2 sm:pt-10
                 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]"
@@ -60,8 +66,11 @@ export default function Project({
             </ul>
           </div>
           <Image
-            src={imageUrl}
+            src={imageUrl || "/PizzaOrderingService.png"}
             alt={title}
+            width={500}
+            height={300}
+            quality={95}
             className="absolute hidden sm:block top-8 -right-40
                 w-[28.25rem] rounded-t-lg shadow-2xl group-even:right-[initial] 
                 group-even:-left-40 transition group-hover:scale-105

@@ -20,22 +20,26 @@ const AnimationVariants = {
   }),
 };
 
-export default function Skills() {
+interface SkillsProps {
+  skills?: readonly string[] | string[];
+}
+
+export default function Skills({ skills }: SkillsProps) {
   const ref = useSectionInView("Skills", 0.75);
+  const list = skills && skills.length > 0 ? skills : skillsData;
+
   return (
     <section
       ref={ref}
       id="skills"
-      className="mb-28 sm:mb-40 max-w-[53rem]
-    scroll-mt-28 text-center"
+      className="mb-28 sm:mb-40 max-w-[53rem] scroll-mt-28 text-center"
     >
       <SectionHeading>My skills</SectionHeading>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg tex-bg-800 ">
-        {skillsData.map((skill, index) => (
+      <ul className="flex flex-wrap justify-center gap-2 text-lg tex-bg-800">
+        {list.map((skill, index) => (
           <motion.li
             key={index}
-            className="bg-white border border-black/[0.1] 
-            px-5 py-3 rounded-xl dark:bg-white/10 dark:text-white/80"
+            className="bg-white border border-black/[0.1] px-5 py-3 rounded-xl dark:bg-white/10 dark:text-white/80"
             variants={AnimationVariants}
             initial="initial"
             whileInView="animate"

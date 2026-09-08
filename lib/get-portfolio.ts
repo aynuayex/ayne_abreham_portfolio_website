@@ -11,14 +11,8 @@ export interface PortfolioData {
     linkedinUrl: string | null;
     email: string | null;
   } | null;
-  projects: Array<{
-    title: string;
-    description: string;
-    tags: readonly string[] | string[];
-    imageUrl?: any;
-    url?: string | null;
-  }>;
-  experiences: any[];
+  projects: readonly any[] | any[];
+  experiences: readonly any[] | any[];
   skills: readonly string[] | string[];
 }
 

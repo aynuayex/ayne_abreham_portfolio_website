@@ -46,6 +46,7 @@ export const projectsData = [
   {
     title: "Pizza ordering service website",
     url: "https://pizza-ordering-service-nine.vercel.app/",
+    githubUrl: "https://github.com/aynuayex",
     description:
       "Restuarants can create and manage pizza menus with Toppings and customers can order a specific pizza.Superadmin can add users with specific roles...",
     tags: ["React", "MUI", "Express", "Casl", "Material-react-table", "Zod"],
@@ -54,6 +55,7 @@ export const projectsData = [
   {
     title: "Book rental website",
     url: "https://book-rental-app-frontend.vercel.app/",
+    githubUrl: "https://github.com/aynuayex",
     description:
       "Book owners can upload a book and manage their lists, monitor their income.Admins can activate/deactivate users registered and books uploaded.",
     tags: ["React", "MUI", "Prisma", "JWT", "Express", "Recharts"],
@@ -62,6 +64,7 @@ export const projectsData = [
   {
     title: "Video Conference website",
     url: "https://react-conference-peerjs.netlify.app/",
+    githubUrl: "https://github.com/aynuayex",
     description:
       "This is like a Zoom clone were two or more users chat with video.Have a Room chat, screen sharing and other basic functionalities.No SDK used.",
     tags: ["React", "Typescript", "Peer.js", "Socket.io", "TailwindCss"],
